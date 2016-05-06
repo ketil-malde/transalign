@@ -1,4 +1,4 @@
-= Transalign - calculate transitive alignments 
+# Transalign - calculate transitive alignments 
 
 This program calculates _transitive alignments_, it takes as its input
 a set of alignmnets from a set of _query_ sequences to an
@@ -14,7 +14,7 @@ relationships with a higher sensitivity than direct alignments, and
 without needing to construct explicit stochastic models of the
 targets.
 
-== Running transalign
+## Running transalign
 
 First, you need BLAST results in XML format, and an installed
 `transalign` executable (see the next section for this).  This will
@@ -34,7 +34,7 @@ You should now have the necessary input data, and you can run
 
     transalign inp_vs_u50.xml u50_vs_sp.xml > inp_vs_sp.txt
 
-== Transalign options
+## Transalign options
 
 You can display the brief, built-in help by running 
 `transalign --help`.  This gives the following output:
@@ -83,21 +83,22 @@ program, `showcache`, to inspect a cached alignment.  The default is
 to build a cache for the second step, but not the first, `-c` builds
 caches for both input files.
 
-== Good and bad practices
+## Good and bad practices
 
-As the BLAST XML output can sometimes be large, transalign will
-parse these files once to generate a cache for them.  This will
-generate a large number of files in a single directory, so you need a
-file system that handles this.  Some do, but NFS is _not_ one of
-them.
+As the BLAST XML output can sometimes be large, `transalign` will
+parse these files once to generate a cache for them.  With recent
+versions of `transalign`, this cache will be split over multiple
+directories, limiting the number of files per directory to something
+manageable.  This does not mean that using NFS necessesarily is such a
+good idea, but at least it should work.
 
-== Examining the output
+## Examining the output
 
 The output is in a table format, somewhat similar to BLAST's (-m
 8). The columns are: Query, Target, Score, Alignment length, Average
 score, Query start, Query end, Target start, Target end.
 
-== Downloading and installing transalign
+## Downloading and installing transalign
 
 The program is written in Haskell, and distributed as source code.
 This means you need a working Haskell compiler and environment, and
