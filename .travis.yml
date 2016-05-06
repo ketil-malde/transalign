@@ -1,9 +1,10 @@
 language: haskell
 
 ghc:
- - '7.10'
  - 7.8
  - 7.6
+# - '7.10' - not supported by current travis-ci config
+# - 7.4    - fails to configure containers properly
 
 before_install:
   - sudo apt-get update -qq
