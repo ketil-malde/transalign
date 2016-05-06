@@ -1,0 +1,9 @@
+language: haskell
+
+ghc:
+ - '7.10'
+ - 7.8
+ - 7.6
+
+script:
+  - test/test.sh
